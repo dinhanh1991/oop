@@ -3,9 +3,9 @@ package model;
 import util.ConsoleColor;
 
 public class Ticket {
-    private Customer customer;
-    private ShowTime showTime;
-    private Seat seat;
+    private Customer customer; // Liên kết với khách hàng
+    private ShowTime showTime; // Giờ chiếu ghi trên giá vé
+    private Seat seat;  // vị trí chỗ ngồi
 
     public Ticket(Customer customer, ShowTime showTime, Seat seat) {
         this.customer = customer;
@@ -36,6 +36,7 @@ public class Ticket {
     public void setSeat(Seat seat) {
         this.seat = seat;
     }
+    // Phương thức in ra vé khi đặt
     public void print() {
 
         System.out.println(ConsoleColor.YELLOW + "\n========= VÉ XEM PHIM =========" + ConsoleColor.RESET);

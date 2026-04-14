@@ -4,10 +4,17 @@ import util.ConsoleColor;
 
 import java.util.Scanner;
 
+/**
+ * MenuView: hiển thị menu và nhận lựa chọn từ người dùng
+ */
 public class MenuView {
 
     private Scanner sc = new Scanner(System.in);
 
+    /**
+     * Menu chính của chương trình
+     * @return lựa chọn của người dùng
+     */
     public int mainMenu() {
 
         System.out.println(ConsoleColor.CYAN + "\n========= CINEMAKO =========" + ConsoleColor.RESET);
@@ -20,14 +27,18 @@ public class MenuView {
         System.out.println("0. 🚪 Thoát");
 
         System.out.print("👉 Chọn: ");
-        return Integer.parseInt(sc.nextLine());
+        return Integer.parseInt(sc.nextLine()); // đọc lựa chọn
     }
 
+    /**
+     * Menu quản lý phim (CRUD)
+     * @return lựa chọn chức năng
+     */
     public int movieMenu() {
         System.out.println("1. Thêm");
         System.out.println("2. Xóa");
         System.out.println("3. Sửa");
 
-        return Integer.parseInt(sc.nextLine());
+        return Integer.parseInt(sc.nextLine()); // đọc lựa chọn
     }
 }
