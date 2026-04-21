@@ -8,7 +8,7 @@ import java.util.*;
 
 public class SeatRepo implements SeatImpl {
 
-    private final String DATA = "D:\\learning\\oob\\untitled\\src\\data\\seats.cvs";
+    private final String DATA = "untitled\\src\\data\\seats.csv";
 // Kiểm tra xem file có tồn tại không nếu không cos tự tạo file
     private void ensureFile() throws Exception {
         File file = new File(DATA);

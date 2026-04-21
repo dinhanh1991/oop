@@ -8,7 +8,7 @@ import java.util.*;
 
 public class TicketRepo implements TicketImpl {
 
-    private final String DATA = "D:\\learning\\oob\\untitled\\src\\data\\tickets.csv";
+    private final String DATA = "untitled\\src\\data\\tickets.csv";
 
     // ================= READ =================
     @Override
