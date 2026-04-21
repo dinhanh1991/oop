@@ -4,7 +4,7 @@
 1,A4,false
 1,A5,false
 1,B1,true
-1,B2,false
+1,B2,true
 1,B3,true
 1,B4,false
 1,B5,false
@@ -58,3 +58,18 @@
 4,C3,false
 4,C4,false
 4,C5,false
+5,A1,false
+5,A2,false
+5,A3,false
+5,A4,false
+5,A5,false
+5,B1,false
+5,B2,false
+5,B3,false
+5,B4,false
+5,B5,false
+5,C1,false
+5,C2,false
+5,C3,false
+5,C4,false
+5,C5,false

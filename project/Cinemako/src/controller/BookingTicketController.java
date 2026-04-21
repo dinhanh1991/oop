@@ -27,28 +27,35 @@ public class BookingTicketController {
             return;
         }
 
-        // 2. Hiển thị ghế và chọn ghế
+        // 2. Hiển thị ghế
         List<Seat> seats = seatService.getSeatsByShow(stId);
         bookingView.displaySeatGrid(seats, stId);
 
-// chọn ghế bằng số
-        int index = bookingView.inputSeatIndex();
-        String seatNum = seatService.getSeatByIndex(stId, index);
+        // 3. Chọn ghế (lặp đến khi hợp lệ)
+        String seatNum;
 
-        if (seatNum == null) {
-            bookingView.showMessage("❌ Ghế không hợp lệ!");
-            return;
+        while (true) {
+            int index = bookingView.inputSeatIndex();
+            seatNum = seatService.getSeatByIndex(stId, index);
+
+            if (seatNum == null) {
+                bookingView.showMessage("❌ Ghế không hợp lệ! Vui lòng chọn lại.");
+                continue;
+            }
+
+            if (!seatService.isSeatAvailable(stId, seatNum)) {
+                bookingView.showMessage("❌ Ghế đã được đặt! Vui lòng chọn ghế khác.");
+                continue;
+            }
+
+            break; // hợp lệ thì thoát
         }
 
-        if (seatService.isSeatAvailable(stId, seatNum)) {
-            // 3. Nhập thông tin khách
-            String[] info = bookingView.inputCustomerInfo();
-            Customer customer = new Customer(info[0], info[1]);
+        // 4. Nhập thông tin khách
+        String[] info = bookingView.inputCustomerInfo();
+        Customer customer = new Customer(info[0], info[1]);
 
-            // 4. Thực hiện đặt vé thông qua TicketService
-            ticketService.bookTicket(customer, st, seatNum);
-        } else {
-            bookingView.showMessage("❌ Ghế này không thể chọn!");
-        }
+        // 5. Đặt vé
+        ticketService.bookTicket(customer, st, seatNum);
     }
 }
